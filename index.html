@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lunar Logic bingo</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+</head>
+
+<body>
+  <h1>Lunar Logic Agile Bingo</h1>
+  <h2>Once you hear the word, mark it on a board. Have a green line? You win!</h2>
+  <form id="bingo-form">
+  </form>
+
+  <script>
+  function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  }
+
+  var bingo = ["Empathy", "Bias", "Alignement", "Respect", "Improvement", "Communication", "Transparency", "Collaboration", "Options", "Autonomy", "Values", "Leadership", "Lean", "Practices", "Efficiency", "Kanban", "Collective", "Responsibility", "Safety", "Visualisation", "Board", "Team", "Estimation", "Flexibility", "Agile"];
+
+  bingo = shuffle(bingo);
+  console.log(bingo);
+
+  var form = document.getElementById("bingo-form");
+  var bingoBoard = document.createElement("fieldset");
+
+  bingoBoard.className += " bingo-board"
+
+  for (var i in bingo) {
+    console.log(bingo[i]);
+    var checkbox = document.createElement('input');
+    checkbox.type = "checkbox";
+    checkbox.name = "bingo";
+    checkbox.value = bingo[i];
+    checkbox.id = bingo[i];
+
+    var label = document.createElement('label')
+    label.htmlFor = bingo[i];
+    label.innerText = bingo[i];
+
+    bingoBoard.appendChild(checkbox);
+    console.log(bingoBoard);
+    bingoBoard.appendChild(label);
+  }
+
+
+  form.appendChild(bingoBoard);
+
+</script>
+</body>
+</html>

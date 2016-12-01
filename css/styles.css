@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #666;
+  text-align: center;
+}
+
+.bingo-board {
+  width: 650px;
+  margin: 0 auto;
+  border: none;
+  padding: 0;
+}
+
+.bingo-board input {
+  position: absolute;
+  margin-right: -100%;
+  opacity: 0;
+}
+
+.bingo-board label {
+  transition: background-color .3s;
+  display: block;
+  width: 130px;
+  height: 130px;
+  float: left;
+  line-height: 130px;
+  cursor: pointer;
+  border: 1px solid;
+  margin-right: -1px;
+  margin-bottom: -1px;
+}
+
+.bingo-board > input:hover + label,
+.bingo-board > input:active + label {
+  background-color: #fdffb6;
+}
+
+.bingo-board > input:checked + label {
+  background-color: #daffc4;
+}
