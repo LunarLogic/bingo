@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h1>Lunar Logic Agile Bingo</h1>
+  <h1>Lunar Logic Buzzword Bingo</h1>
   <h2>Once you hear the word, mark it on a board. Have a green line? You win!</h2>
   <form id="bingo-form">
   </form>
@@ -34,30 +34,27 @@
     return array;
   }
 
-  var bingo = ["Empathy", "Bias", "Alignment", "Respect", "Improvement", "Communication", "Transparency", "Collaboration", "Options", "Autonomy", "Values", "Leadership", "Lean", "Practices", "Efficiency", "Kanban", "Collective", "Responsibility", "Safety", "Visualisation", "Board", "Team", "Estimation", "Flexibility", "Agile"];
+  var buzzwords = ["Empathy", "Bias", "Alignment", "Respect", "Improvement", "Communication", "Transparency", "Collaboration", "Options", "Autonomy", "Values", "Leadership", "Lean", "Practices", "Efficiency", "Kanban", "Collective", "Responsibility", "Safety", "Visualisation", "Board", "Team", "Estimation", "Flexibility", "Agile"];
 
-  bingo = shuffle(bingo);
-  console.log(bingo);
+  buzzwords = shuffle(buzzwords);
 
   var form = document.getElementById("bingo-form");
   var bingoBoard = document.createElement("fieldset");
 
   bingoBoard.className += " bingo-board"
 
-  for (var i in bingo) {
-    console.log(bingo[i]);
+  for (var i in buzzwords) {
     var checkbox = document.createElement('input');
     checkbox.type = "checkbox";
     checkbox.name = "bingo";
-    checkbox.value = bingo[i];
-    checkbox.id = bingo[i];
+    checkbox.value = buzzwords[i];
+    checkbox.id = buzzwords[i];
 
     var label = document.createElement('label')
-    label.htmlFor = bingo[i];
-    label.innerText = bingo[i];
+    label.htmlFor = buzzwords[i];
+    label.innerText = buzzwords[i];
 
     bingoBoard.appendChild(checkbox);
-    console.log(bingoBoard);
     bingoBoard.appendChild(label);
   }
 
